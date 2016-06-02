@@ -1,0 +1,37 @@
+<html>
+<head>
+	<title>Part 1: Color Guessing Game</title>
+	<meta name="author" content="Ivan Obeso">
+</head>
+<body onload="do_game()">
+	<script>
+		var colors = ["blue", "gold", "gray", "green", "magenta", "orange", "red", "white", "yellow"];
+		var finished = false;
+		var msg_ask = "I am thinking of one of these colors:\n\n" + colors +
+		 "\n\nWhat color am I thinking of?";
+		 var guess_input;
+		 var target;
+
+		//Generate a random integer between 0 and max
+		function generate_random_integer(max){
+			return Math.floor(Math.random() * max);
+		}
+
+		//Main function that runs the game
+		function do_game(){
+			var rand = generate_random_integer(colors.length-1);
+			target = colors[rand];
+			alert("DEBUG: The target is " + target); //Only for DEBUG
+			while(!finished){
+				guess_input = prompt(msg_ask);
+				if(target == guess_input){
+					finished = true;
+				}
+			}
+			myBody=document.getElementsByTagName("body")[0];
+			myBody.style.background=target;
+		}
+
+	</script>
+</body>
+</html>

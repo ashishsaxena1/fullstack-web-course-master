@@ -1,0 +1,29 @@
+{
+  "name": "conFusion",
+  "authors": [
+    "Ivan Obeso <ivan.obeso1@gmail.com>"
+  ],
+  "description": "Website for an awesome restaurant",
+  "main": "inted.html",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "conFusion",
+    "Fusion",
+    "Restaurant"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6",
+    "font-awesome": "~4.5.0"
+  }
+}

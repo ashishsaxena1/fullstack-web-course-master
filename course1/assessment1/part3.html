@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Assessment 1</title>
+	<meta name="author" content="Ivan Obeso">
+	<style>
+		fieldset{
+			background:lightyellow;
+			border:10px solid yellow;
+			margin-bottom:10px;
+			width:720px;
+		}
+		label{
+			width:180px;
+			display:inline-block;
+			text-align: right;
+			text-align: top;
+		}
+		input[type="checkbox"],
+		input[type="radio"]{
+			width:auto;
+		}
+		textarea{
+			width:360px;
+			height:50px;
+		}
+		span{
+			text-align : center; 
+			width:70px;
+			display:inline-block;
+			text-align: top;
+			color: white;
+		}
+		span.minimum{
+			background:SaddleBrown;
+		}
+		span.maximum{
+			background:RoyalBlue;
+		}
+		label:hover { font-size:40px; }
+	</style>
+</head>
+<body>
+	<form action="https://ihome.ust.hk/~rossiter/cgi-bin/show_everything.php" method="post" enctype="multipart/form-data" >
+		<h1>Please Enter Your Details For Our Dating Website!</h1>
+
+		<fieldset>
+	    	<legend>Your face</legend>
+			<label for="image">Your image:</label> <input type="file"><br>
+			<label for="image_preview">Image preview:</label> <img id="preview" alt="Your image" height="42" width="42">
+		</fieldset>
+
+		<fieldset>
+	    	<legend>Your general details</legend>
+			<label for="name">Name: </label><input type= "text" required><br>
+			<label for="gender">Gender: </label>
+  				<input type="radio" name="sex" value="male" checked required>Male
+  				<input type="radio" name="sex" value="female" required>Female
+				<br>
+			<label for="age">Age: </label><input type="number" required><br>
+			<label for="dob">Date of birth: </label><input type="date"><br>
+			<label for="color">Favorite color: </label><input type="color"><br>
+			<label for="country">Which country: </label> 
+			<select>
+			  <option value="NO_SELECTION">NO SELECTION</option>
+			  <option value="USA">USA</option>
+			  <option value="Germany">Germany</option>
+			  <option value="France">France</option>
+			  <option value="England">England</option>
+			  <option value="Spain">Spain</option>
+			</select> 
+
+		</fieldset>
+
+		<fieldset>
+	    	<legend>Your indicators</legend>
+			<label for="height">Height: </label> <span class="minimum">Short</span> <input type="range" min="0" max="100"> <span class="maximum">Tall</span><br>
+			<label for="salary">Salary: </label> <span class="minimum">Poor</span> <input type="range" min="0" max="100"> <span class="maximum">Rich</span>
+		</fieldset>
+
+		<fieldset>
+	    	<legend>Your Contact Information</legend>
+			<label for="email">Email: </label><input type="email" required><br>
+			<label for="mobile">Mobile: </label><input type="tel"><br>
+			<label for="address">Address: </label><textarea rows="4" cols="50"></textarea><br>
+			<label for="contact">Method to contact you: </label>
+				<input type="checkbox" name="contact" value="email">Email
+				<input type="checkbox" name="contact" value="whatsapp">Whatsapp
+				<input type="checkbox" name="contact" value="in_app_chat">In-app chat
+
+		</fieldset>
+
+		<input type="submit" required>
+	</form>
+	<script src="https://www.cse.ust.hk/~rossiter/dating_web_site.js"></script>
+</body>
+</html>

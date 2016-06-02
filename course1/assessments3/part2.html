@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Matching Game</title>
+	<meta name="author" content="Ivan Obeso">
+	<style>
+		img{
+			position:absolute;
+		}
+		div{
+			position:absolute;
+			width:500px;
+			height:500px;
+		}
+		#rightSide { 
+			left: 500px;
+            border-left: 1px solid black 
+        }
+	</style>
+</head>
+<body>
+	<h1>Matching Game</h1>
+	<p>Click on the extra smiling face on the left.</p>
+	<div id="leftSide"></div>
+	<div id="rightSide"></div>
+	<script>
+		/* This function generates numberOfFaces faces, on the left screen
+		of the game */
+		function generateFaces(){
+			//For each face I am going to create
+			for(var i=0; i<numberOfFaces; i++){
+				var imgNode = document.createElement('img');
+				imgNode.src="smile.png";
+				//The top of the image will be between [0, 400]
+				imgNode.style.top = generate_random(400) + "px";
+				//The left of the image will be between [0, 400]
+				imgNode.style.left = generate_random(400) + "px";
+				//Insert the node in the DOM
+				theLeftSide.appendChild(imgNode);
+			}
+		}
+
+		//This function generates a random number between [0, max]
+		function generate_random(max){
+			return Math.floor(Math.random() * max);
+		}
+
+		var numberOfFaces=5; //We are gonna generate 5 faces on the beginning
+		var theLeftSide = document.getElementById("leftSide");
+		generateFaces(); //To start the game, it populates the left screen
+	</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<html>
+<head>
+	<title>Part 2: Color Guessing Game</title>
+	<meta name="author" content="Ivan Obeso">
+</head>
+<body onload="do_game()">
+	<script>
+		var colors = ["blue", "gold", "gray", "green", "magenta", "orange", "red", "white", "yellow"];
+		var finished = false;
+		var guesses = 0;
+		var msg_ask = "I am thinking of one of these colors:\n\n" + colors +
+		 "\n\nWhat color am I thinking of?";
+		 var msg1 = "Sorry, I don't recognize your color.\n\nPlease try again.";
+		 var msg2 = "Sorry, your guess in not correct!\n\nHint: your color is alphabetically higher than mine.\n\nPlease try again.";
+		 var msg3 = "Sorry, your guess in not correct!\n\nHint: your color is alphabetically lower than mine.\n\nPlease try again.";
+		 var guess_input;
+		 var target;
+
+		//Generate a random integer between 0 and max
+		function generate_random_integer(max){
+			return Math.floor(Math.random() * max);
+		}
+
+		function check_guess(){
+			var ret = false;
+			if(colors.indexOf(guess_input) == -1){ //guess_input is not in colors
+				alert(msg1);
+			}else if(guess_input > target){ //guess is alphabetically higher than the target:
+				alert(msg2);
+			}else if(guess_input < target){ //guess is alphabetically lower than the target
+				alert(msg3);
+			}else{ //The user guessed the color
+				alert("Congratulations! You have guessed the color!\n\nIt took you " + guesses + " guesses to finish the game!\n\nYou can see the colour in the background.");
+				ret = true;
+			}
+			return ret;
+		}
+
+		//Main function that runs the game
+		function do_game(){
+			var rand = generate_random_integer(colors.length-1);
+			target = colors[rand];
+			alert("DEBUG: The target is " + target); //Only for DEBUG
+			while(!finished){
+				guess_input = prompt(msg_ask);
+				guesses+=1;
+				finished = check_guess();
+			}
+			myBody=document.getElementsByTagName("body")[0];
+			myBody.style.background=target;
+		}
+
+	</script>
+</body>
+</html>
